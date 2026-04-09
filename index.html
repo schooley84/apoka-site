@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apoka Capital — Investing in exceptional local businesses.</title>
+  <meta name="description" content="Apoka Capital acquires and invests in locally rooted businesses with strong reputations, exceptional service, and lasting potential.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1B2A4A;
+      --navy-deep: #111D34;
+      --navy-light: #2A3F6B;
+      --cream: #F7F5F0;
+      --cream-warm: #F0EDE6;
+      --white: #FFFFFF;
+      --charcoal: #1A1A1A;
+      --text-primary: #2D2D2A;
+      --text-secondary: #6B6B65;
+      --text-muted: #9A9A93;
+      --border: #E0DDD6;
+      --border-light: #EAE8E2;
+      --accent-gold: #C4985A;
+      --font-display: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--cream);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===================== HEADER ===================== */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      padding: 7px 13px;
+      border-radius: 5px;
+    }
+
+    .logo-text {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      color: var(--navy);
+      margin-left: 7px;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .header-nav a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .header-nav a:hover { color: var(--navy); }
+
+    .header-nav .nav-cta {
+      background: var(--navy);
+      color: var(--white);
+      padding: 10px 24px;
+      border-radius: 5px;
+      transition: background 0.2s;
+    }
+
+    .header-nav .nav-cta:hover {
+      background: var(--navy-deep);
+      color: var(--white);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .mobile-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--navy);
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      padding: 160px 0 72px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-text {
+      padding-right: 16px;
+    }
+
+    .hero-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      position: relative;
+      top: -12px;
+    }
+
+    .hero-image img {
+      width: 88%;
+      height: auto;
+      max-width: 500px;
+      opacity: 0.62;
+    }
+
+    .hero-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 24px;
+      opacity: 0.5;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+      line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 28px;
+      max-width: 620px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin-bottom: 0;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--border);
+      max-width: 720px;
+    }
+
+    .stat {
+      padding: 32px 0;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-value {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    /* ===================== SECTIONS ===================== */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    section { padding: 100px 0; }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 20px;
+      opacity: 0.5;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+      line-height: 1.25;
+      color: var(--navy);
+      margin-bottom: 24px;
+      letter-spacing: -0.015em;
+    }
+
+    h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.2rem;
+      line-height: 1.4;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    /* ===================== ABOUT ===================== */
+    .about {
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-intro {
+      max-width: 780px;
+      margin-bottom: 72px;
+      font-size: 1.08rem;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .value-item {
+      padding: 40px 44px;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      transition: background 0.25s;
+    }
+
+    .value-item:nth-child(2n) { border-right: none; }
+    .value-item:nth-child(n+3) { border-bottom: none; }
+    .value-item:hover { background: var(--cream); }
+
+    .value-item h3 { font-size: 1.1rem; margin-bottom: 10px; }
+    .value-item p { font-size: 0.95rem; line-height: 1.7; }
+
+    /* ===================== PHILOSOPHY (dark) ===================== */
+    .philosophy {
+      background: var(--navy);
+      color: var(--white);
+      padding: 100px 0;
+    }
+
+    .philosophy .section-label { color: var(--white); opacity: 0.35; }
+    .philosophy h2 { color: var(--white); max-width: 600px; }
+
+    .philosophy-intro {
+      color: rgba(255,255,255,0.6);
+      max-width: 680px;
+      margin-bottom: 48px;
+      font-size: 1.05rem;
+    }
+
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 48px;
+      max-width: 860px;
+    }
+
+    .criteria-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+    }
+
+    .criteria-bullet {
+      flex-shrink: 0;
+      width: 6px; height: 6px;
+      background: var(--accent-gold);
+      border-radius: 50%;
+      margin-top: 9px;
+    }
+
+    .criteria-item p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ===================== PORTFOLIO ===================== */
+    .portfolio {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .portfolio-header { margin-bottom: 48px; }
+
+    .portfolio-card {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 48px;
+      align-items: start;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 52px;
+      background: var(--cream);
+      transition: box-shadow 0.3s;
+    }
+
+    .portfolio-card:hover { box-shadow: 0 8px 40px rgba(27,42,74,0.06); }
+
+    .wrapt-logo-styled {
+      font-family: var(--font-body);
+      font-weight: 800;
+      font-size: 2.2rem;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .wrapt-logo-styled .dot { color: #2D7FF9; }
+
+    .portfolio-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    .portfolio-content h3 { font-size: 1.5rem; margin-bottom: 16px; }
+    .portfolio-content p { margin-bottom: 16px; font-size: 0.98rem; }
+
+    .portfolio-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--navy);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 8px;
+      transition: gap 0.2s;
+    }
+
+    .portfolio-link:hover { gap: 10px; }
+    .portfolio-link::after { content: '→'; }
+
+    /* ===================== FOUNDER ===================== */
+    .founder {
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .founder-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .founder-content h2 { max-width: 420px; }
+    .founder-text p { margin-bottom: 20px; }
+
+    .founder-quote {
+      padding: 40px 44px;
+      background: var(--white);
+      border-left: 3px solid var(--navy);
+      border-radius: 0 8px 8px 0;
+      margin-top: 16px;
+    }
+
+    .founder-quote p {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.6;
+    }
+
+    /* ===================== CONTACT ===================== */
+    .contact {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+
+    .contact-info h2 { max-width: 400px; }
+    .contact-info p { max-width: 400px; margin-bottom: 32px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .form-group { display: flex; flex-direction: column; }
+
+    .form-group label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--cream);
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: #B5B2AB; }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--navy);
+      background: var(--white);
+    }
+
+    .form-group textarea { min-height: 140px; resize: vertical; }
+
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 36px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover { background: var(--navy-deep); }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.5);
+      padding: 48px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy { font-size: 0.82rem; }
+
+    .footer-nav { display: flex; gap: 32px; }
+
+    .footer-nav a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover { color: rgba(255,255,255,0.85); }
+
+    /* ===================== ANIMATIONS ===================== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 900px) {
+      .header-inner, .hero-container, .container { padding: 0 24px; }
+      .header-nav { display: none; }
+      .mobile-toggle { display: block; }
+      .hero { padding: 110px 0 48px; }
+      .hero-container { grid-template-columns: 1fr; gap: 32px; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero-image { max-height: none; overflow: visible; top: 0; }
+      .hero-image img { width: 75%; max-width: 280px; margin: 0 auto; opacity: 0.52; }
+      section { padding: 64px 0; }
+      .values-grid { grid-template-columns: 1fr; }
+      .value-item { border-right: none !important; padding: 28px 24px; }
+      .value-item:nth-child(3) { border-bottom: 1px solid var(--border); }
+      .criteria-grid { grid-template-columns: 1fr; gap: 8px; }
+      .portfolio-card { grid-template-columns: 1fr; gap: 24px; padding: 28px; }
+      .portfolio-card svg { width: 120px; height: auto; }
+      .founder-layout { grid-template-columns: 1fr; gap: 32px; }
+      .founder-quote { padding: 28px 24px; }
+      .contact-layout { grid-template-columns: 1fr; gap: 32px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+      h2 { font-size: 1.6rem; }
+      .about-intro { font-size: 1rem; }
+      .philosophy-intro { font-size: 0.95rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 100px 0 40px; }
+      .hero h1 { font-size: 1.85rem; }
+      .hero-subtitle { font-size: 1rem; }
+      .hero-image img { width: 70%; max-width: 240px; opacity: 0.46; }
+      section { padding: 52px 0; }
+      h2 { font-size: 1.45rem; }
+      .value-item { padding: 24px 20px; }
+      .portfolio-card { padding: 24px 20px; }
+      .founder-quote { padding: 24px 20px; }
+      .footer-nav { gap: 20px; flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <span class="logo-mark">APOKA</span>
+        <span class="logo-text">CAPITAL</span>
+      </a>
+      <nav class="header-nav">
+        <a href="#about">About</a>
+        <a href="#approach">Approach</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#founder">Leadership</a>
+        <a href="#contact" class="nav-cta">Get in Touch</a>
+      </nav>
+      <button class="mobile-toggle" onclick="document.querySelector('.header-nav').classList.toggle('show')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-text">
+        <h1 class="fade-in">Investing in<br>exceptional<br>local businesses.</h1>
+        <p class="hero-subtitle fade-in">Apoka Capital acquires and invests in strong local businesses in the American Heartland that have lasting reputations, excellent service, and real growth potential.</p>
+      </div>
+      <div class="hero-image fade-in">
+        <img src="hero-tree.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-label fade-in">About</div>
+      <h2 class="fade-in">A place where strong businesses and long-term partnership come together.</h2>
+      <p class="about-intro fade-in">Apoka — meaning "a place of gathering" — was founded to bring together strong local businesses, patient capital, and hands-on operational support. We take a long-term approach to building value. We look for companies where people, culture, and local reputation are the true competitive advantage — and we work to protect and strengthen all three.</p>
+      <div class="values-grid">
+        <div class="value-item fade-in">
+          <h3>Long-Term Ownership</h3>
+          <p>We acquire businesses to keep them — strengthening what works and investing patiently in what's next.</p>
+        </div>
+        <div class="value-item fade-in">
+          <h3>Selective Investment</h3>
+          <p>We're deliberate about where we put our time and capital. Every business we back is one we believe in deeply.</p>
+        </div>
+        <div class="value-item fade-in">
+          <h3>Operational Discipline</h3>
+          <p>Sound operations, careful stewardship of resources, and a focus on fundamentals create durable value over time.</p>
+        </div>
+        <div class="value-item fade-in">
+          <h3>Respect for People &amp; Legacy</h3>
+          <p>The best businesses are built by people who care. We protect the culture, relationships, and reputation that made them great.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="philosophy" id="approach">
+    <div class="container">
+      <div class="section-label fade-in">Investment Philosophy</div>
+      <h2 class="fade-in">What we look for</h2>
+      <p class="philosophy-intro fade-in">We're drawn to businesses across the Heartland that have been doing meaningful work for years — often quietly, without fanfare. Companies with real substance: proven operations, strong teams, and reputations built over time.</p>
+      <div class="criteria-grid">
+        <div class="criteria-item fade-in">
+          <div class="criteria-bullet"></div>
+          <p>Locally rooted businesses with real community presence.</p>
+        </div>
+        <div class="criteria-item fade-in">
+          <div class="criteria-bullet"></div>
+          <p>Service-driven companies with loyal, long-standing customers.</p>
+        </div>
+        <div class="criteria-item fade-in">
+          <div class="criteria-bullet"></div>
+          <p>Established, profitable operations with a track record of consistent performance.</p>
+        </div>
+        <div class="criteria-item fade-in">
+          <div class="criteria-bullet"></div>
+          <p>Practical, understandable business models — not complex or speculative.</p>
+        </div>
+        <div class="criteria-item fade-in">
+          <div class="criteria-bullet"></div>
+          <p>Companies where trust, quality, and execution define daily operations.</p>
+        </div>
+        <div class="criteria-item fade-in">
+          <div class="criteria-bullet"></div>
+          <p>Businesses with strong reputations and room for thoughtful growth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="portfolio-header">
+        <div class="section-label fade-in">Portfolio</div>
+        <h2 class="fade-in">Our first acquisition</h2>
+      </div>
+      <div class="portfolio-card fade-in">
+        <div class="portfolio-logo-area">
+          <a href="https://www.gowrapt.com" target="_blank" rel="noopener"><svg width="160" height="48" viewBox="0 0 800 240" xmlns="http://www.w3.org/2000/svg"><text x="0" y="190" font-family="Inter, Arial, sans-serif" font-weight="900" font-size="240" fill="#2E7ABF" letter-spacing="-8">Wrapt</text><circle cx="755" cy="195" r="22" fill="#E05A2B"/></svg></a>
+          <div class="portfolio-meta">Commercial Fleet Wraps<br>Oklahoma</div>
+        </div>
+        <div class="portfolio-content">
+          <h3>Wrapt</h3>
+          <p>Wrapt helps businesses bring their brands to life on the road through high-quality vehicle wraps and graphics. From single trucks to entire commercial fleets, Wrapt combines craftsmanship with dependable service to deliver results that last.</p>
+          <p>As Apoka Capital's first acquisition, Wrapt exemplifies exactly what we look for: a strong Heartland business built on real relationships, meaningful expertise, and a commitment to quality that customers trust and return to.</p>
+          <a href="https://www.gowrapt.com" class="portfolio-link" target="_blank" rel="noopener">Visit Website</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section class="founder" id="founder">
+    <div class="container">
+      <div class="founder-layout">
+        <div class="founder-content">
+          <div class="section-label fade-in">The Operators Behind Apoka</div>
+          <h2 class="fade-in">We don't just invest. We build.</h2>
+          <div class="founder-text fade-in">
+            <p>Apoka Capital was founded by two operators who grew up in Oklahoma and spent their careers building businesses from the inside. Now, as strategic investors, they bring that same hands-on mindset to every deal — actively involved in adding high-level value to the businesses they acquire.</p>
+            <p>The conviction behind Apoka is simple: some of the strongest businesses in this country are the ones you drive past every day. They don't need to be reinvented — they need a partner who respects what's already been built, backs outstanding operators who are aligned in values and vision, and has the patience to help it grow.</p>
+          </div>
+        </div>
+        <div class="fade-in">
+          <div class="founder-quote">
+            <p>"Operators turned investors — actively building alongside the people who run great businesses."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-info">
+          <div class="section-label fade-in">Contact</div>
+          <h2 class="fade-in">Let's start a conversation.</h2>
+          <p class="fade-in">Whether you're a business owner exploring your next chapter, an operator looking for the right partner, an investor interested in co-investing alongside us, or someone who shares our values — we'd like to hear from you.</p>
+        </div>
+        <div class="contact-form fade-in">
+          <form action="https://formsubmit.co/tyler@apokacapital.com" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@company.com" required>
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" placeholder="Your company (optional)">
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us what's on your mind." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-copy">&copy; 2026 Apoka Capital. All rights reserved.</div>
+        <nav class="footer-nav">
+          <a href="#about">About</a>
+          <a href="#approach">Approach</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Header scroll shadow
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // Mobile nav
+    const mobileStyle = document.createElement('style');
+    mobileStyle.textContent = `
+      @media (max-width: 900px) {
+        .header-nav.show {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 72px; left: 0; right: 0;
+          background: var(--white);
+          padding: 24px;
+          border-bottom: 1px solid var(--border);
+          gap: 16px;
+          box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+      }`;
+    document.head.appendChild(mobileStyle);
+  </script>
+
+</body>
+</html>
